@@ -2,7 +2,7 @@ package dominio;
 
 import java.util.List;
 
-public class Pessoa {
+public abstract class Pessoa {
 
     private String nome;
 
@@ -34,12 +34,4 @@ public class Pessoa {
         this.email = email;
     }
 
-    @Override
-    public String toString() {
-        return "Pessoa{" +
-                "nome='" + nome + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", email='" + email + '\'' +
-                '}';
-    }
 }
