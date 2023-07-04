@@ -21,7 +21,7 @@ public class Controller {
 
     VendedorService vendedorService = new VendedorService(new ArrayList<>(), validacaoService);
 
-    GerenciamentoVendaService gerenciamentoVendaService = new GerenciamentoVendaService(clienteService, vendedorService, new ArrayList<>());
+    GerenciamentoVendaService gerenciamentoVendaService = new GerenciamentoVendaService(clienteService, vendedorService, new ArrayList<>(), validacaoService);
 
     public void menu() {
 

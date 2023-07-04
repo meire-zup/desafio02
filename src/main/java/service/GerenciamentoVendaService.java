@@ -20,13 +20,16 @@ public class GerenciamentoVendaService implements  GerenciamentoService{
 
     List<Venda> vendasCadastradas;
 
+    ValidacaoService validacaoService;
 
 
-    public GerenciamentoVendaService(ClienteService clienteService, VendedorService vendedorService, List<Venda> vendasCadastradas) {
+
+    public GerenciamentoVendaService(ClienteService clienteService, VendedorService vendedorService, List<Venda> vendasCadastradas, ValidacaoService validacaoService) {
 
         this.clienteService = clienteService;
         this.vendedorService = vendedorService;
         this.vendasCadastradas = vendasCadastradas;
+        this.validacaoService = validacaoService;
 
     }
 
@@ -36,13 +39,44 @@ public class GerenciamentoVendaService implements  GerenciamentoService{
     @Override
     public void cadastrarVenda() {
 
-        System.out.println("Informe o cpf do cliente:");
+        boolean cpfValido = false;
+        String cpfCliente;
 
-        String cpfCliente = scanner.nextLine();
+        do {
+            System.out.println("Informe o cpf do cliente:");
 
-        System.out.println("Informe o cpf do vendedor:");
+            cpfCliente = scanner.nextLine();
 
-        String cpfVendedor = scanner.nextLine();
+            if (validacaoService.validarCPF(cpfCliente)) {
+
+                cpfValido = true;
+
+            } else {
+
+                System.out.println("O CPF informado é inválido. Insira um CPF válido.");
+
+            }
+        } while (cpfValido == false);
+
+        String cpfVendedor;
+
+        cpfValido = false;
+
+        do {
+            System.out.println("Informe o cpf do vendedor:");
+
+            cpfVendedor = scanner.nextLine();
+
+            if (validacaoService.validarCPF(cpfVendedor)) {
+
+                cpfValido = true;
+
+            } else {
+
+                System.out.println("O CPF informado é inválido. Insira um CPF válido.");
+
+            }
+        } while (cpfValido == false);
 
         if(clienteService.verificarSeECadastrado(cpfCliente) && vendedorService.verificarSeECadastrado(cpfVendedor)) {
 

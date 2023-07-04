@@ -29,7 +29,7 @@ public class Main {
 
         VendedorService vendedorService = new VendedorService(vendedores, validacaoService);
 
-        GerenciamentoVendaService gerenciamentoVendaService = new GerenciamentoVendaService(clienteService, vendedorService, vendas);
+        GerenciamentoVendaService gerenciamentoVendaService = new GerenciamentoVendaService(clienteService, vendedorService, vendas, validacaoService);
 
         // Testa método cadastrar cliente
         clienteService.cadastrar();
