@@ -24,17 +24,12 @@ public class Main {
         GerenciamentoVendaService gerenciamentoVendaService = new GerenciamentoVendaService(clienteService, vendedorService, vendas);
 
         clienteService.cadastrar();
-        clienteService.cadastrar();
         System.out.println("--------------------------------");
-        //clienteService.listar();
-        //vendedorService.cadastrar();
-        //vendedorService.cadastrar();
+        clienteService.listar();
+        vendedorService.cadastrar();
+        vendedorService.cadastrar();
         System.out.println("--------------------------------");
         vendedorService.listar();
-        gerenciamentoVendaService.cadastrarVenda();
-        gerenciamentoVendaService.cadastrarVenda();
-        gerenciamentoVendaService.cadastrarVenda();
-        gerenciamentoVendaService.cadastrarVenda();
         gerenciamentoVendaService.cadastrarVenda();
         gerenciamentoVendaService.listarVenda();
         gerenciamentoVendaService.listarVendasPorVendedor();

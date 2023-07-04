@@ -80,6 +80,9 @@ public class ClienteService implements PessoaService {
                     return;
 
                 }
+
+
+
             }
 
 
@@ -94,6 +97,22 @@ public class ClienteService implements PessoaService {
 
         clientes.add(cliente);
         System.out.println("Cliente cadastrado com sucesso!");
+
+        int sair;
+
+        do {
+            System.out.println("Deseja cadastrar outro cliente? (Digite 0 para sim ou 1 para não)");
+            sair = scanner.nextInt();
+            scanner.nextLine();
+
+        } while (sair != 0 &&  sair != 1);
+
+        if (sair == 0) {
+
+            return;
+        } else if ( sair == 1) {
+            cadastrar();
+        }
 
 
     }
