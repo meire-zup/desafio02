@@ -3,6 +3,7 @@ package controller;
 import dominio.Cliente;
 import service.ClienteService;
 import service.GerenciamentoVendaService;
+import service.ValidacaoService;
 import service.VendedorService;
 
 import java.util.ArrayList;
@@ -14,9 +15,11 @@ public class Controller {
     Scanner scanner = new Scanner(System.in);
 
     List<Cliente> clientes = new ArrayList<>();
-    ClienteService clienteService = new ClienteService(clientes);
 
-    VendedorService vendedorService = new VendedorService(new ArrayList<>());
+    ValidacaoService validacaoService = new ValidacaoService();
+    ClienteService clienteService = new ClienteService(clientes, validacaoService);
+
+    VendedorService vendedorService = new VendedorService(new ArrayList<>(), validacaoService);
 
     GerenciamentoVendaService gerenciamentoVendaService = new GerenciamentoVendaService(clienteService, vendedorService, new ArrayList<>());
 

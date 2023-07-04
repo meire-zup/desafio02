@@ -5,6 +5,7 @@ import dominio.Venda;
 import dominio.Vendedor;
 import service.ClienteService;
 import service.GerenciamentoVendaService;
+import service.ValidacaoService;
 import service.VendedorService;
 
 import java.util.ArrayList;
@@ -14,26 +15,46 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // Instanciação dos objetos
 
         List<Cliente> clientes = new ArrayList<>();
+
         List<Vendedor> vendedores = new ArrayList<>();
+
         List<Venda> vendas = new ArrayList<>();
 
-        ClienteService clienteService = new ClienteService(clientes);
-        VendedorService vendedorService = new VendedorService(vendedores);
+        ValidacaoService validacaoService = new ValidacaoService();
+
+        ClienteService clienteService = new ClienteService(clientes, validacaoService);
+
+        VendedorService vendedorService = new VendedorService(vendedores, validacaoService);
+
         GerenciamentoVendaService gerenciamentoVendaService = new GerenciamentoVendaService(clienteService, vendedorService, vendas);
 
+        // Testa método cadastrar cliente
         clienteService.cadastrar();
-        System.out.println("--------------------------------");
-        clienteService.listar();
+
+        // Testa método cadastrar vendedor
         vendedorService.cadastrar();
-        vendedorService.cadastrar();
-        System.out.println("--------------------------------");
-        vendedorService.listar();
+
+        // Testa método cadastrar venda
         gerenciamentoVendaService.cadastrarVenda();
-        gerenciamentoVendaService.listarVenda();
+
+        // Lista as vendas de um vendedor
         gerenciamentoVendaService.listarVendasPorVendedor();
+
+        // Lista as compras de um cliente
         gerenciamentoVendaService.listarComprasPorCliente();
+
+        // Lista clientes cadastrados
+        clienteService.listar();
+
+        // Lista vendedores cadastrados
+        vendedorService.listar();
+
+        // Lista total de vendas
+        gerenciamentoVendaService.listarVenda();
+
 
 
 
