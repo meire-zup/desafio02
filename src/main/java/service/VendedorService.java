@@ -1,6 +1,5 @@
 package service;
 
-import dominio.Cliente;
 import dominio.Vendedor;
 
 import java.util.List;

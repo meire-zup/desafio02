@@ -15,7 +15,7 @@ public class ValidacaoService {
         }
         return true;
     }
-    // Método verifica se o CPF contém 11 digitos
+    // Método verifica se o CPF contém 11 digitos e se não são dígitos iguais
     public boolean validarCPF(String cpf) {
 
         cpf = cpf.replaceAll("\\D+", "");
