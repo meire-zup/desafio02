@@ -30,7 +30,7 @@ public class ClienteService implements PessoaService {
         String nome =scanner.nextLine();
 
 
-        if(validacaoService.eNumero(nome)) {
+        if(validacaoService.nomeENumeroOuVazio(nome)) {
 
             System.out.println("Formato inválido!");
             cadastrar();

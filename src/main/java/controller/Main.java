@@ -55,9 +55,6 @@ public class Main {
         // Lista total de vendas
         gerenciamentoVendaService.listarVenda();
 
-
-
-
     }
 
 }

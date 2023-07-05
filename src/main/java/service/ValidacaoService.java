@@ -2,8 +2,8 @@ package service;
 
 public class ValidacaoService {
 
-    // Método verifica se o nome digitado é uma String
-    public boolean eNumero (String nome){
+    // Método verifica se o nome digitado é um número ou valor vazio
+    public boolean nomeENumeroOuVazio (String nome){
 
         for(char c : nome.toCharArray()) {
 
@@ -15,7 +15,7 @@ public class ValidacaoService {
         }
         return true;
     }
-    // Método verifica se o CPF coném 11 digitos
+    // Método verifica se o CPF contém 11 digitos
     public boolean validarCPF(String cpf) {
 
         cpf = cpf.replaceAll("\\D+", "");
